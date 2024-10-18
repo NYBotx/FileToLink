@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jwplayer.com/libraries/7sjHar0d.js"></script> <!-- Replace with your JW Player key -->
 </head>
 
 <body>
@@ -38,7 +39,7 @@
     <div class="outer">
         <div class="inner">
             <div class="main" id="main">
-                <video id="player" class="player" src="{{file_url}}" type="video/mp4" playsinline controls preload="auto" width="100%"></video>
+                <div id="jwplayer"></div> <!-- JW Player Container -->
                 <div class="file-name">
                     <h4>File Name: </h4>
                     <p id="myDiv">{{file_name}}</p><br>
@@ -94,4 +95,15 @@
 <script src="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.js"></script>
 <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
 <script src="https://proavipatil.github.io/data/fs/src/script.js"></script>
+
+<script>
+    // Initialize JW Player
+    jwplayer("jwplayer").setup({
+        file: "{{file_url}}", // Video URL
+        width: "100%",
+        height: "auto",
+        title: "{{file_name}}"
+    });
+</script>
+
 </html>
